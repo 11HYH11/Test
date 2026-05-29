@@ -45,7 +45,7 @@ The calibration workflow is divided into the following steps:
 └── README.md
 ```
 
-## 3. IMU Noise Calibration
+## 3. IMU Calibration
 
 Before running IMU-camera calibration, the IMU noise parameters need to be estimated.
 
@@ -84,7 +84,7 @@ imu0:
   gyroscope_random_walk: 3.449857059399396e-06
 ```
 
-## 4. Camera Intrinsic Calibration
+## 4. Camera Calibration
 
 Camera intrinsic calibration should be completed before IMU-camera extrinsic calibration.
 
@@ -104,7 +104,7 @@ The generated camera calibration file should be saved as:
 config/camchain.yaml
 ```
 
-## 5. IMU-Camera Extrinsic Calibration
+## 5. IMU-Camera Calibration
 
 After preparing the camera intrinsic file, IMU configuration file, AprilGrid target file, and synchronized IMU-camera rosbag, run:
 

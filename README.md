@@ -68,21 +68,7 @@ gyroscope_noise_density
 gyroscope_random_walk
 ```
 
-These parameters are then written into `config/imu.yaml`.
-
-Example `imu.yaml`:
-
-```yaml
-imu0:
-  rostopic: /imu0
-  update_rate: 400.0
-
-  accelerometer_noise_density: 0.0014137774377636627
-  accelerometer_random_walk: 4.209534659066097e-05
-
-  gyroscope_noise_density: 9.6755597798026e-05
-  gyroscope_random_walk: 3.449857059399396e-06
-```
+These parameters are then written into `imu.yaml`.
 
 ## 4. Camera Calibration
 

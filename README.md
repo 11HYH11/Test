@@ -78,16 +78,16 @@ Example command:
 
 ```bash
 kalibr_calibrate_cameras \
-  --target config/aprilgrid.yaml \
-  --bag bags/cam_calib.bag \
-  --models pinhole-radtan \
+  --target aprilgrid.yaml \
+  --bag cam_calib.bag \
+  --models pinhole-radtan \    # Base on your camera type
   --topics /cam0/image_raw
 ```
 
 The generated camera calibration file should be saved as:
 
 ```bash
-config/camchain.yaml
+camchain.yaml
 ```
 
 ## 5. IMU-Camera Calibration
@@ -96,10 +96,10 @@ After preparing the camera intrinsic file, IMU configuration file, AprilGrid tar
 
 ```bash
 kalibr_calibrate_imu_camera \
-  --target config/aprilgrid.yaml \
-  --cam config/camchain.yaml \
-  --imu config/imu.yaml \
-  --bag bags/imu_cam_calib.bag
+  --target aprilgrid.yaml \
+  --cam camchain.yaml \
+  --imu imu.yaml \
+  --bag imu_cam_calib.bag
 ```
 
 Kalibr will estimate the spatial transformation between the IMU and camera frames.
@@ -112,6 +112,11 @@ For IMU noise calibration:
 * Avoid touching or moving the device during recording.
 * Use a sufficiently long recording duration.
 
+For Camera calibration:
+
+* The camera  is fixed.
+* The calibration target moves in front of the camera to obtain the calibration image.
+
 For IMU-camera extrinsic calibration:
 
 * The IMU and camera must be rigidly fixed together.
@@ -123,18 +128,22 @@ For IMU-camera extrinsic calibration:
 
 ## 7. Output Files
 
-The IMU noise calibration provides the parameters used in:
+The IMU calibration provides the parameters used in:
 
 ```bash
-config/imu.yaml
+imu.yaml
+```
+
+The camera calibration provides the parameters used in:
+
+```bash
+camchain.yaml
 ```
 
 The IMU-camera calibration generates files such as:
 
 ```bash
 camchain-imucam.yaml
-report-imucam.pdf
-results-imucam.txt
 ```
 
 The most important result is the extrinsic transformation between the IMU and camera.
